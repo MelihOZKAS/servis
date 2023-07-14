@@ -1,8 +1,8 @@
 version: "3.8"
 services:
-  postgres:
-    container_name: postgres
-    hostname: postgres
+  postgreservis:
+    container_name: postgreservis
+    hostname: postgreservis
     image: postgres:latest
     env_file:
       - hizliservis/docker.env
@@ -27,7 +27,7 @@ services:
     expose:
       - 8001
     depends_on:
-      - postgres
+      - postgreservis
     command: gunicorn hizliservis.wsgi:application --bind 0.0.0.0:8001
     networks:
       - main_servis
