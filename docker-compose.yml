@@ -13,7 +13,7 @@ services:
     networks:
       - main_servis
     command: -p 5433
-  app:
+  app_servis:
     container_name: app_servis
     hostname: app_servis
     build:
@@ -23,7 +23,7 @@ services:
       - hizliservis/docker.env
     volumes:
       - static-data-servis:/srv/public
-      - .:/srv/app
+      - .:/srv/app_servis
     expose:
       - 8001
     depends_on:
