@@ -15,6 +15,8 @@ def home(request):
 def hakkimizda(request):
     return render(request,"system/hakkimizda.html")
 
+def hizmetlerimiz(request):
+    return render(request,"system/hizmetlerimiz.html")
 
 def iletisim(request):
     if request.method == 'POST':
@@ -22,7 +24,7 @@ def iletisim(request):
         if form.is_valid():
             form.save()
 
-            joined_message = "MNT Başvurusuna Yeni Bayi Başvurusu Geldi Hadi Hemen işlemlere Başla Çooook Para Lazım (: "
+            joined_message = "Arıza kaydı talebi geldi lütfen yardımcı olalım."
             url = f"https://api.telegram.org/bot{env('Telegram_Token')}/sendMessage?chat_id={env('Telegram_Chat_id')}&text={joined_message}"
             r = requests.get(url)
             return HttpResponse("Arıza Talebiniz Alınmıştır Çağrı Merkezimiz Sizi En Kısa Sürede Arayacaktır.")  # Başarılı işlem sonrası yönlendirilecek sayfa
