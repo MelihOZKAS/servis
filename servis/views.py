@@ -6,4 +6,4 @@ def home(request):
 
 
 def hakkimizda(request):
-    return render(request,"system/home.html")
+    return render(request,"system/hakkimizda.html")
